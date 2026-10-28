@@ -1,5 +1,43 @@
 {
-
+  "version": 2,
   "framework": null,
-  "outputDirectory": "public/build"
+  "outputDirectory": "public/build",
+  "functions": {
+    "api/index.php": {
+      "runtime": "vercel-php@0.7."
+    }
+  },
+  "routes": [
+    {
+      "src": "/build/(.*)",
+      "dest": "/public/build/$1"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/public/assets/$1"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/public/favicon.ico"
+    },
+    {
+      "src": "/robots.txt",
+      "dest": "/public/robots.txt"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.php"
+    }
+  ],
+  "env": {
+    "APP_ENV": "production",
+    "APP_DEBUG": "false",
+    "APP_KEY": "@php artisan key:generate --show",
+    "DB_CONNECTION": "mysql",
+    "DB_HOST": "@vercel/mysql-host",
+    "DB_PORT": "@vercel/mysql-port",
+    "DB_DATABASE": "@vercel/mysql-database",
+    "DB_USERNAME": "@vercel/mysql-username",
+    "DB_PASSWORD": "@vercel/mysql-password"
+  }
 }

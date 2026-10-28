@@ -1,0 +1,12 @@
+.git
+.github
+.vscode
+.env
+.env.*
+node_modules
+vender
+tests
+phpunit.xml
+README.md
+CLAUDE.md
+AGENTS.md
